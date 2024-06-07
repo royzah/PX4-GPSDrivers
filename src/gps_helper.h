@@ -51,6 +51,28 @@
 # define M_PI_F 3.14159265358979323846f
 #endif
 
+struct sensor_gnss_relative_s {
+    uint64_t timestamp_sample;
+    uint64_t time_utc_usec;
+    uint16_t reference_station_id;
+    float position[3];
+    float position_length;
+    float heading;
+    float heading_accuracy;
+    float position_accuracy[3];
+    float accuracy_length;
+    bool gnss_fix_ok;
+    bool differential_solution;
+    bool relative_position_valid;
+    bool carrier_solution_floating;
+    bool carrier_solution_fixed;
+    bool moving_base_mode;
+    bool reference_position_miss;
+    bool reference_observations_miss;
+    bool heading_valid;
+    bool relative_position_normalized;
+};
+
 enum class GPSCallbackType {
 	/**
 	 * Read data from device. This is a blocking operation with a timeout.
